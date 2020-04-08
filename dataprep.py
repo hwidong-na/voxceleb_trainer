@@ -104,7 +104,7 @@ def extract(args):
 ## ========== ===========
 def ffmpeg_fn(fname):
     outfile = fname.replace('.m4a','.wav')
-    if os.path.exist(outfile):
+    if os.path.exists(outfile):
         # skip existing output
         return 0
     out = subprocess.call('ffmpeg -y -i %s -ac 1 -vn -acodec pcm_s16le -ar 16000 %s >/dev/null 2>/dev/null' %(fname,outfile), shell=True)
